@@ -1,0 +1,24 @@
+db:
+  driver: org.postgresql.Driver
+  password: admin
+  url: jdbc:postgresql://localhost:5432/employee_db
+  username: postgres
+entitymanager:
+  packagesToScan: com
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQLDialect
+  format_sql: false
+  hbm2ddl:
+    auto: update
+  show_sql: true
+logging:
+  file:
+    name: mylog/hms.log
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+server:
+  port: 8090
+spring:
+  application:
+    name: Employee-API

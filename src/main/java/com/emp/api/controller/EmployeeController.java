@@ -76,7 +76,7 @@ public class EmployeeController {
 
 	}
 
-	@PutMapping(value = "/update")
+	@PutMapping(value = "/update") //you can transfer department of user by using this api
 	public ResponseEntity<Boolean> updateEmployee(@RequestBody Employee employee) {
 		Boolean isUpdated = empService.updateEmployee(employee);
 		if (isUpdated) {
@@ -87,7 +87,7 @@ public class EmployeeController {
 		}
 	}
 
-	@GetMapping(value = "/getby_date_dept")
+	@GetMapping(value = "/getby_date_and_dept")
 	public ResponseEntity<List<Employee>> getEmployeeBy_Date_Department(@RequestParam Date date, Long depId) {
 		List<Employee> list = empService.getEmployeeBy_Date_Department(date, depId);
 
@@ -101,8 +101,8 @@ public class EmployeeController {
 	}
 
 	@GetMapping(value = "/getworking_department")
-	public ResponseEntity<Employee_Department> getWorkingDepartments(@RequestParam String employee_id) {
-		Employee_Department workingDepartments = empService.getWorkingDepartments(employee_id);
+	public ResponseEntity<Employee_Department> getWorkingDepartments(@RequestParam String id) {
+		Employee_Department workingDepartments = empService.getWorkingDepartments(id);
 		if (workingDepartments != null) {
 			return new ResponseEntity<Employee_Department>(workingDepartments, HttpStatus.FOUND);
 		} else {
